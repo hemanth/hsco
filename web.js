@@ -4,5 +4,5 @@ http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   var url_parts = url.parse(req.url, true);
   var status = url_parts.pathname.replace(/^\/([^\/]*).*$/, '$1');
-  res.end(http.STATUS_CODES[status] || "Undefined status : "+ status);
+  res.end(http.STATUS_CODES[status] || "Undefined status : "+ status || "Try /404");
 }).listen(process.env.PORT || 5000);
